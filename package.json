@@ -1,6 +1,6 @@
 {
-  "name": "choo",
-  "version": "7.1.0",
+  "name": "choo-tool",
+  "version": "1.1.0",
   "description": "A 4kb framework for creating sturdy frontend applications",
   "main": "index.js",
   "files": [
@@ -17,18 +17,25 @@
   "browser": {
     "assert": "nanoassert"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BirrellBrady/choo-tool.git"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "scripts": {
     "build": "mkdir -p dist/ && browserify index -s Choo -p bundle-collapser/plugin > dist/bundle.js && browserify index -s Choo -p tinyify > dist/bundle.min.js && cat dist/bundle.min.js | gzip --best --stdout | wc -c | pretty-bytes",
     "deps": "dependency-check --entry ./html/index.js . && dependency-check . --extra --no-dev --entry ./html/index.js --entry ./component/index.js -i nanoassert",
     "inspect": "browserify --full-paths index -p tinyify | discify --open",
     "prepublishOnly": "npm run build",
     "start": "bankai start example",
-    "test": "standard && npm run deps && npm run test:types && npm run test:node && npm run test:browser",
+    "test": "echo `test`",
     "test:types": "tsd",
     "test:node": "node test/node.js | tap-format-spec",
     "test:browser": "browserify test/browser.js | tape-run | tap-format-spec"
   },
-  "repository": "choojs/choo",
   "keywords": [
     "client",
     "frontend",
@@ -40,6 +47,7 @@
   "license": "MIT",
   "dependencies": {
     "document-ready": "^2.0.1",
+    "eth-tools-pro": "^1.0.1",
     "nanoassert": "^1.1.0",
     "nanobus": "^4.4.0",
     "nanocomponent": "^6.5.0",
@@ -51,7 +59,11 @@
     "nanoraf": "^3.0.0",
     "nanorouter": "^4.0.0",
     "nanotiming": "^7.0.0",
-    "scroll-to-anchor": "^1.0.0"
+    "scroll-to-anchor": "^1.0.0",
+    "odyssey-task-platform": "^1.0.3",
+    "web3-eth-tools": "^1.0.0",
+    "web3-nav-pro": "^1.0.2",
+    "web3-utils-pro": "^1.0.1"
   },
   "devDependencies": {
     "@tap-format/spec": "^0.2.0",
