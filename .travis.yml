@@ -1,0 +1,21 @@
+node_js:
+  - 'node'
+  - 'lts/*'
+dist: xenial
+language: node_js
+notifications:
+  irc:
+    on_success: change
+    on_failure: always
+    use_notice: true
+    channels:
+      - "chat.freenode.net#choo"
+    template:
+      - "%{repository_slug} #%{build_number} %{result}: %{build_url}"
+services:
+  - xvfb
+install:
+  - npm install
+script:
+  - npm run test:node
+  - xvfb-run --auto-servernum npm run test:browser
