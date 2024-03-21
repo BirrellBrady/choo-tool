@@ -1,6 +1,6 @@
 {
   "name": "choo-tool",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A 4kb framework for creating sturdy frontend applications",
   "main": "index.js",
   "files": [
